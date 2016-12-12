@@ -1,9 +1,11 @@
+#-*- coding:utf-8 -*-
 import requests
 import os
 
 #此处路径自己修改， 
-path='D:\code\python_image_learn\identfying_code_recognize\imgs\\'
-num=1000
+#path='D:\code\python_image_learn\identfying_code_recognize\imgs\\'
+path='./img/'
+num=100
 if os.path.exists(path):  
 
     pass
@@ -15,6 +17,6 @@ for i in range(0,num):
     filePath=path+str(i)+'.jpg'
     #这个地址下可以下载到普通的验证码
     r=requests.get('http://jw.hrbeu.edu.cn/ACTIONVALIDATERANDOMPICTURE.APPPROCESS')
-    with open(filePath,'bw') as f:
+    with open(filePath,'w') as f:
         f.write(r.content)
     

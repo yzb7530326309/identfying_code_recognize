@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 from PIL import Image
 import traceback
 import python_getpic
@@ -25,11 +26,13 @@ list14 = [1,6,6,7,2]
 #此函数用于设置像素值的转换，
 def set_table(a):
     table=[]
-    for i in range(256):
-        if i<a:
-            table.append(0)
-        else:
-            table.append(1)
+    table.extend([0]*a)
+    table.extend([1]*(256-a))
+#    for i in range(256):
+#        if i<a:
+#            table.append(0)
+#        else:
+#            table.append(1)
     return table
 def recognize_picture(p,r):
     '''
